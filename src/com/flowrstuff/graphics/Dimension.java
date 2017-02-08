@@ -2,56 +2,98 @@ package com.flowrstuff.graphics;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Image;
 
 
-public class Dimension {
+
+public class Dimension extends Texture{
 	private int width, height, gridSizeX, gridSizeY;
 	private Color c1, c2;
 	private Graphics g;
 	
-	
-	public Dimension(int width, int height, int gridSizeX, int gridSizeY, Color c1, Color c2, Graphics g){
-		this.width = width;
-		this.gridSizeX = gridSizeX;
-		this.gridSizeY = gridSizeY;
-		this.height = height;
-		this.g = g;
-		
-		//The two colours of the Dimension grid
-		this.c1 = c1;
-		this.c2 = c2;
+	public Dimension(int x, int y, int width, int height, Image texture, Graphics g){
+		super(x, y, width, height, texture, g);
+		SetType(0);
 		
 		
 	}
 	
+	public void SetType(int type){
+		
+	}
 
 	public void Update(){
 
 	}
 	
-	public void Render(){
 
-		
-		DrawGrid();
-
+	public int getWidth() {
+		return width;
 	}
 
-	
-	private void DrawGrid(){
-		int gridDimensionX = width / gridSizeX;
-		int gridDimensionY = height / gridSizeY;
-		for(int x = 0; x < gridSizeX; x++){
-			for(int y = 0; y < gridSizeY; y++){
-				if(x % 2 == 0 && y % 2 == 0){
-					g.setColor(c1);
-				}else if(x % 2 == 1 && y % 2 == 1){
-					g.setColor(c1);
-				}else{
-					g.setColor(c2);
-				}
-				g.fillRect(x * gridDimensionX, y * gridDimensionY, gridDimensionX, gridDimensionY);
-			}
-		}
+
+	public void setWidth(int width) {
+		this.width = width;
+	}
+
+
+	public int getHeight() {
+		return height;
+	}
+
+
+	public void setHeight(int height) {
+		this.height = height;
+	}
+
+
+	public int getGridSizeX() {
+		return gridSizeX;
+	}
+
+
+	public void setGridSizeX(int gridSizeX) {
+		this.gridSizeX = gridSizeX;
+	}
+
+
+	public int getGridSizeY() {
+		return gridSizeY;
+	}
+
+
+	public void setGridSizeY(int gridSizeY) {
+		this.gridSizeY = gridSizeY;
+	}
+
+
+	public Color getC1() {
+		return c1;
+	}
+
+
+	public void setC1(Color c1) {
+		this.c1 = c1;
+	}
+
+
+	public Color getC2() {
+		return c2;
+	}
+
+
+	public void setC2(Color c2) {
+		this.c2 = c2;
+	}
+
+
+	public Graphics getG() {
+		return g;
+	}
+
+
+	public void setG(Graphics g) {
+		this.g = g;
 	}
 	
 }
